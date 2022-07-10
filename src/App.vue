@@ -1,0 +1,117 @@
+<template>
+    <select v-model="selectedClass">
+        <option value="None"></option>
+        <option v-for="item in classes" :value="item.name">{{ item.name }}</option>
+    </select>
+    <ul v-for="engraving in engravings" :key="engraving.id">
+        <li v-if="engraving.class==selectedClass || engraving.class=='None'">{{engraving.name}}</li>
+    </ul>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            selectedClass: "None",
+            classes: [
+                { id: 1, name: "Berserker" },
+                { id: 2, name: "Destroyer" },
+                { id: 3, name: "Gunlancer" },
+                { id: 4, name: "Paladin" },
+                { id: 5, name: "Bard" },
+                { id: 6, name: "Sorceress" },
+                { id: 7, name: "Wardancer" },
+                { id: 8, name: "Scrapper" },
+                { id: 9, name: "Soulfist" },
+                { id: 10, name: "Glaivier" },
+                { id: 11, name: "Striker" },
+                { id: 12, name: "Deathblade" },
+                { id: 13, name: "Shadowhunter" },
+                { id: 14, name: "Sharpshooter" },
+                { id: 15, name: "Deadeye" },
+                { id: 16, name: "Artillerist" },
+                { id: 17, name: "Gunslinger" },
+            ],
+            engravings: [
+                { id: 1, name: "Adrenaline", class: "None" },
+                { id: 2, name: "All-Out Attack", class: "None" },
+                { id: 3, name: "Ambush Master", class: "None" },
+                { id: 4, name: "Awakening", class: "None" },
+                { id: 5, name: "Barricade", class: "None" },
+                { id: 6, name: "Broken Bone", class: "None" },
+                { id: 7, name: "Contender", class: "None" },
+                { id: 8, name: "Crisis Evasion", class: "None" },
+                { id: 9, name: "Crushing Fist", class: "None" },
+                { id: 10, name: "Cursed Doll", class: "None" },
+                { id: 11, name: "Disrespect", class: "None" },
+                { id: 12, name: "Divine Protection", class: "None" },
+                { id: 13, name: "Drops of Ether", class: "None" },
+                { id: 14, name: "Emergency Rescue", class: "None" },
+                { id: 15, name: "Enhanced Shield", class: "None" },
+                { id: 16, name: "Ether Predator", class: "None" },
+                { id: 17, name: "Expert", class: "None" },
+                { id: 18, name: "Explosive Expert", class: "None" },
+                { id: 19, name: "Fortitude", class: "None" },
+                { id: 20, name: "Grudge", class: "None" },
+                { id: 21, name: "Heavy Armor", class: "None" },
+                { id: 22, name: "Hit Master", class: "None" },
+                { id: 23, name: "Keen Blunt Weapon", class: "None" },
+                { id: 24, name: "Lightning Fury", class: "None" },
+                { id: 25, name: "Magick Stream", class: "None" },
+                { id: 26, name: "Mass Increase", class: "None" },
+                { id: 27, name: "Master Brawler", class: "None" },
+                { id: 28, name: "Master of Escape", class: "None" },
+                { id: 29, name: "Master's Tenacity", class: "None" },
+                { id: 30, name: "Max MP Increase", class: "None" },
+                { id: 31, name: "MP Efficiency Increase", class: "None" },
+                { id: 32, name: "Necromancy", class: "None" },
+                { id: 33, name: "Precise Dagger", class: "None" },
+                { id: 34, name: "Preemptive Strike", class: "None" },
+                { id: 35, name: "Propulsion", class: "None" },
+                { id: 36, name: "Raid Captain", class: "None" },
+                { id: 37, name: "Shield Piercing", class: "None" },
+                { id: 38, name: "Sight Focus", class: "None" },
+                { id: 39, name: "Spirit Absorption", class: "None" },
+                { id: 40, name: "Stabilized Status", class: "None" },
+                { id: 41, name: "Strong Will", class: "None" },
+                { id: 42, name: "Super Charge", class: "None" },
+                { id: 43, name: "Vital Point Hit", class: "None" },
+                { id: 44, name: "Barrage Enhancement", class: "Artillerist" },
+                { id: 45, name: "Berserker's Technique", class: "Berserker" },
+                { id: 46, name: "Blessed Aura", class: "Paladin" },
+                { id: 47, name: "Combat Readiness", class: "Gunlancer" },
+                { id: 48, name: "Control", class: "Glaivier" },
+                { id: 49, name: "Death Strike", class: "Sharpshooter" },
+                { id: 50, name: "Deathblow", class: "Striker" },
+                { id: 51, name: "Demonic Impulse", class: "Shadowhunter" },
+                { id: 52, name: "Desperate Salvation", class: "Bard" },
+                { id: 53, name: "Energy Overflow", class: "Soulfist" },
+                { id: 54, name: "Enhanced Weapon", class: "Deadeye" },
+                { id: 55, name: "Esoteric Flurry", class: "Striker" },
+                { id: 56, name: "Esoteric Skill Enhancement", class: "Wardancer" },
+                { id: 57, name: "Firepower Enhancement", class: "Artillerist" },
+                { id: 58, name: "First Intention", class: "Wardancer" },
+                { id: 59, name: "Gravity Training", class: "Destroyer" },
+                { id: 60, name: "Igniter", class: "Sorceress" },
+                { id: 61, name: "Judgment", class: "Paladin" },
+                { id: 62, name: "Lone Knight", class: "Gunlancer" },
+                { id: 63, name: "Loyal Companion", class: "Sharpshooter" },
+                { id: 64, name: "Mayhem", class: "Berserker" },
+                { id: 65, name: "Peacemaker", class: "Gunslinger" },
+                { id: 66, name: "Perfect Suppression", class: "Shadowhunter" },
+                { id: 67, name: "Pinnacle", class: "Glaivier" },
+                { id: 68, name: "Pistoleer", class: "Deadeye" },
+                { id: 69, name: "Rage Hammer", class: "Destroyer" },
+                { id: 70, name: "Reflux", class: "Sorceress" },
+                { id: 71, name: "Remaining Energy", class: "Deathblade" },
+                { id: 72, name: "Robust Spirit", class: "Soulfist" },
+                { id: 73, name: "Shock Training", class: "Scrapper" },
+                { id: 74, name: "Surge", class: "Deathblade" },
+                { id: 75, name: "Time to Hunt", class: "Gunslinger" },
+                { id: 76, name: "True Courage", class: "Bard" },
+                { id: 77, name: "Ultimate Skill: Taijutsu", class: "Scrapper" }
+            ]
+        }
+    }
+}
+</script>
