@@ -5,17 +5,21 @@
         <option v-for="item in classes" :value="item.name">{{ item.name }}</option>
     </select>
 
-    <div id="summary"></div>
+    <div id="summary">
+        <h1>Summary</h1>
+        <div v-for="item in summarySort" :key="item.name">{{ item.name }} + {{ item.value }}  {{item.type}}</div>
+    </div>
 
 
     <div id="character">
         <h1>Character</h1>
         <select v-model="CharacterPositiveEngraving1.name">
             <option value=""></option>
-            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name }}</option>
+            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name
+            }}</option>
         </select>
         <select v-model.number="CharacterPositiveEngraving1.value">
-          <option :value="12">12</option>
+            <option :value="12">12</option>
             <option :value="9">9</option>
             <option :value="6">6</option>
             <option :value="3">3</option>
@@ -24,7 +28,8 @@
         <br>
         <select v-model="CharacterPositiveEngraving2.name">
             <option value=""></option>
-            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name }}</option>
+            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name
+            }}</option>
         </select>
         <select v-model.number="CharacterPositiveEngraving2.value">
             <option :value="12">12</option>
@@ -34,14 +39,12 @@
         </select>
     </div>
 
-    <div>{{ CharacterPositiveEngraving1.name }} with value {{ CharacterPositiveEngraving1.value }}</div>
-    <div>{{ CharacterPositiveEngraving2.name }} with value {{ CharacterPositiveEngraving2.value }}</div>
-
     <div id="stone">
         <h1>Stone</h1>
         <select v-model="StonePositiveEngraving1.name">
             <option value=""></option>
-            <option v-for="engraving in removeAllClassesPositiveEngravings" :value="engraving.name">{{ engraving.name }}</option>
+            <option v-for="engraving in removeAllClassesPositiveEngravings" :value="engraving.name">{{ engraving.name }}
+            </option>
         </select>
         <select v-model.number="StonePositiveEngraving1.value">
             <option :value="10">10</option>
@@ -60,10 +63,11 @@
         <br>
         <select v-model="StonePositiveEngraving2.name">
             <option value=""></option>
-            <option v-for="engraving in removeAllClassesPositiveEngravings" :value="engraving.name">{{ engraving.name }}</option>
+            <option v-for="engraving in removeAllClassesPositiveEngravings" :value="engraving.name">{{ engraving.name }}
+            </option>
         </select>
         <select v-model.number="StonePositiveEngraving2.value">
-           <option :value="10">10</option>
+            <option :value="10">10</option>
             <option :value="9">9</option>
             <option :value="8">8</option>
             <option :value="7">7</option>
@@ -82,7 +86,7 @@
             <option v-for="engraving in negativeEngravings" :value="engraving.name">{{ engraving.name }}</option>
         </select>
         <select v-model.number="StoneNegativeEngraving.value">
-           <option :value="10">10</option>
+            <option :value="10">10</option>
             <option :value="9">9</option>
             <option :value="8">8</option>
             <option :value="7">7</option>
@@ -96,16 +100,13 @@
         </select>
     </div>
 
-    <div>{{ StonePositiveEngraving1.name }} with value {{ StonePositiveEngraving1.value }}</div>
-    <div>{{ StonePositiveEngraving2.name }} with value {{ StonePositiveEngraving2.value }}</div>
-    <div>{{ StoneNegativeEngraving.name }} with value {{ StoneNegativeEngraving.value }}</div>
-
 
     <div id="ring1">
-<h1>Ring 1</h1>
-<select v-model="FirstRingPositiveEngraving1.name">
+        <h1>Ring 1</h1>
+        <select v-model="FirstRingPositiveEngraving1.name">
             <option value=""></option>
-            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name }}</option>
+            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name
+            }}</option>
         </select>
         <select v-model.number="FirstRingPositiveEngraving1.value">
             <option :value="5">5</option>
@@ -118,7 +119,8 @@
         <br>
         <select v-model="FirstRingPositiveEngraving2.name">
             <option value=""></option>
-            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name }}</option>
+            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name
+            }}</option>
         </select>
         <select v-model.number="FirstRingPositiveEngraving2.value">
             <option :value="5">5</option>
@@ -140,15 +142,12 @@
         </select>
     </div>
 
-    <div>{{ FirstRingPositiveEngraving1.name }} with value {{ FirstRingPositiveEngraving1.value }}</div>
-    <div>{{ FirstRingPositiveEngraving2.name }} with value {{ FirstRingPositiveEngraving2.value }}</div>
-    <div>{{ FirstRingNegativeEngraving.name }} with value {{ FirstRingNegativeEngraving.value }}</div>
-
     <div id="ring2">
-<h1>Ring 2</h1>
-    <select v-model="SecondRingPositiveEngraving1.name">
+        <h1>Ring 2</h1>
+        <select v-model="SecondRingPositiveEngraving1.name">
             <option value=""></option>
-            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name }}</option>
+            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name
+            }}</option>
         </select>
         <select v-model.number="SecondRingPositiveEngraving1.value">
             <option :value="5">5</option>
@@ -161,7 +160,8 @@
         <br>
         <select v-model="SecondRingPositiveEngraving2.name">
             <option value=""></option>
-            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name }}</option>
+            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name
+            }}</option>
         </select>
         <select v-model.number="SecondRingPositiveEngraving2.value">
             <option :value="5">5</option>
@@ -183,15 +183,12 @@
         </select>
     </div>
 
-    <div>{{ SecondRingPositiveEngraving1.name }} with value {{ SecondRingPositiveEngraving1.value }}</div>
-    <div>{{ SecondRingPositiveEngraving2.name }} with value {{ SecondRingPositiveEngraving2.value }}</div>
-    <div>{{ SecondRingNegativeEngraving.name }} with value {{ SecondRingNegativeEngraving.value }}</div>
-
     <div id="earring1">
-<h1>Earring 1</h1>
-    <select v-model="FirstEarringPositiveEngraving1.name">
+        <h1>Earring 1</h1>
+        <select v-model="FirstEarringPositiveEngraving1.name">
             <option value=""></option>
-            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name }}</option>
+            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name
+            }}</option>
         </select>
         <select v-model.number="FirstEarringPositiveEngraving1.value">
             <option :value="5">5</option>
@@ -204,7 +201,8 @@
         <br>
         <select v-model="FirstEarringPositiveEngraving2.name">
             <option value=""></option>
-            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name }}</option>
+            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name
+            }}</option>
         </select>
         <select v-model.number="FirstEarringPositiveEngraving2.value">
             <option :value="5">5</option>
@@ -231,10 +229,11 @@
     <div>{{ FirstEarringNegativeEngraving.name }} with value {{ FirstEarringNegativeEngraving.value }}</div>
 
     <div id="earring2">
-<h1>Earring 2</h1>
+        <h1>Earring 2</h1>
         <select v-model="SecondEarringPositiveEngraving1.name">
             <option value=""></option>
-            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name }}</option>
+            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name
+            }}</option>
         </select>
         <select v-model.number="SecondEarringPositiveEngraving1.value">
             <option :value="5">5</option>
@@ -247,7 +246,8 @@
         <br>
         <select v-model="SecondEarringPositiveEngraving2.name">
             <option value=""></option>
-            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name }}</option>
+            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name
+            }}</option>
         </select>
         <select v-model.number="SecondEarringPositiveEngraving2.value">
             <option :value="5">5</option>
@@ -269,15 +269,12 @@
         </select>
     </div>
 
-    <div>{{ SecondEarringPositiveEngraving1.name }} with value {{ SecondEarringPositiveEngraving1.value }}</div>
-    <div>{{ SecondEarringPositiveEngraving2.name }} with value {{ SecondEarringPositiveEngraving2.value }}</div>
-    <div>{{ SecondEarringNegativeEngraving.name }} with value {{ SecondEarringNegativeEngraving.value }}</div>
-
-        <div id="necklace">
-<h1>Necklace</h1>
-<select v-model="NecklacePositiveEngraving1.name">
+    <div id="necklace">
+        <h1>Necklace</h1>
+        <select v-model="NecklacePositiveEngraving1.name">
             <option value=""></option>
-            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name }}</option>
+            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name
+            }}</option>
         </select>
         <select v-model.number="NecklacePositiveEngraving1.value">
             <option :value="5">5</option>
@@ -290,7 +287,8 @@
         <br>
         <select v-model="NecklacePositiveEngraving2.name">
             <option value=""></option>
-            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name }}</option>
+            <option v-for="engraving in removeOtherClassesPositiveEngravings" :value="engraving.name">{{ engraving.name
+            }}</option>
         </select>
         <select v-model.number="NecklacePositiveEngraving2.value">
             <option :value="5">5</option>
@@ -311,10 +309,6 @@
             <option :value="1">1</option>
         </select>
     </div>
-
-    <div>{{ NecklacePositiveEngraving1.name }} with value {{ NecklacePositiveEngraving1.value }}</div>
-    <div>{{ NecklacePositiveEngraving2.name }} with value {{ NecklacePositiveEngraving2.value }}</div>
-    <div>{{ NecklaceNegativeEngraving.name }} with value {{ NecklaceNegativeEngraving.value }}</div>
 
 </template>
 
@@ -421,7 +415,7 @@ export default {
                 { id: 75, name: "Strong Will", class: "" },
                 { id: 76, name: "Super Charge", class: "" },
                 { id: 77, name: "Vital Point Hit", class: "" },
-                
+
             ],
 
             negativeEngravings: [
@@ -457,6 +451,8 @@ export default {
 
             CharacterPositiveEngraving1: { name: "", value: 0 },
             CharacterPositiveEngraving2: { name: "", value: 0 },
+
+            summary: [],
 
         }
     },
@@ -512,150 +508,360 @@ export default {
     },
     computed:
     {
-        removeOtherClassesPositiveEngravings(){
+        summarySort() {
+            function compare(a, b) {
+                if (a.type< b.type) {
+                    return 1;
+                }
+                if (a.type > b.type) {
+                    return -1;
+                }
+                return 0;
+            }
+            let array = this.summary.sort( compare )
+            return array.sort(({value:a}, {value:b}) => b-a)
+
+        },
+
+
+        //character
+        characterPositiveEngraving1_str() {
+            return JSON.stringify(this.CharacterPositiveEngraving1)
+        },
+        characterPositiveEngraving2_str() {
+            return JSON.stringify(this.CharacterPositiveEngraving2)
+        },
+
+        //stone
+        stonePositiveEngraving1_str() {
+            return JSON.stringify(this.StonePositiveEngraving1)
+        },
+
+        stonePositiveEngraving2_str() {
+            return JSON.stringify(this.StonePositiveEngraving2)
+        },
+
+        stoneNegativeEngraving_str() {
+            return JSON.stringify(this.StoneNegativeEngraving)
+        },
+
+        //first ring
+        firstRingPositiveEngraving1_str() {
+            return JSON.stringify(this.FirstRingPositiveEngraving1)
+        },
+
+        firstRingPositiveEngraving2_str() {
+            return JSON.stringify(this.FirstRingPositiveEngraving2)
+        },
+
+        firstRingNegativeEngraving_str() {
+            return JSON.stringify(this.FirstRingNegativeEngraving)
+        },
+
+        //second ring
+        secondRingPositiveEngraving1_str() {
+            return JSON.stringify(this.SecondRingPositiveEngraving1)
+        },
+
+        secondRingPositiveEngraving2_str() {
+            return JSON.stringify(this.SecondRingPositiveEngraving2)
+        },
+
+        secondRingNegativeEngraving_str() {
+            return JSON.stringify(this.SecondRingNegativeEngraving)
+        },
+
+        //first earring
+        firstEarringPositiveEngraving1_str() {
+            return JSON.stringify(this.FirstEarringPositiveEngraving1)
+        },
+
+        firstEarringPositiveEngraving2_str() {
+            return JSON.stringify(this.FirstEarringPositiveEngraving2)
+        },
+
+        firstEarringNegativeEngraving_str() {
+            return JSON.stringify(this.FirstEarringNegativeEngraving)
+        },
+
+        //second earring
+        secondEarringPositiveEngraving1_str() {
+            return JSON.stringify(this.SecondEarringPositiveEngraving1)
+        },
+
+        secondEarringPositiveEngraving2_str() {
+            return JSON.stringify(this.SecondEarringPositiveEngraving2)
+        },
+
+        secondEarringNegativeEngraving_str() {
+            return JSON.stringify(this.SecondEarringNegativeEngraving)
+        },
+
+        //necklace
+        necklacePositiveEngraving1_str() {
+            return JSON.stringify(this.NecklacePositiveEngraving1)
+        },
+
+        necklacePositiveEngraving2_str() {
+            return JSON.stringify(this.NecklacePositiveEngraving2)
+        },
+
+        necklaceNegativeEngraving_str() {
+            return JSON.stringify(this.NecklaceNegativeEngraving)
+        },
+
+        //arrays
+        removeOtherClassesPositiveEngravings() {
             return this.positiveEngravings.filter(engraving => engraving.class == this.selectedClass || engraving.class == "")
         },
-        removeAllClassesPositiveEngravings(){
+        removeAllClassesPositiveEngravings() {
             return this.positiveEngravings.filter(engraving => engraving.class == "")
         },
+    },
+    methods:
+    {
+        addSummaryElement(engravingName, engravingValue) {
+            if (engravingName !== "") {
+                let engravingIsNegative = false
+                this.negativeEngravings.forEach(function (item, index, array) {
+                    if (item.name == engravingName) {
+                        engravingIsNegative = true
+                    }
+                })
+                if (this.summary.some(item => item.name === engravingName)) {
+                    var index = this.summary.map(function (e) { return e.name; }).indexOf(engravingName)
+                    var value = this.summary[index].value
+                    if (engravingIsNegative) {
+                        this.summary[index] = { name: engravingName, value: parseInt(value) + parseInt(engravingValue), type: "negative" }
+                    }
+                    else {
+                        this.summary[index] = { name: engravingName, value: parseInt(value) + parseInt(engravingValue), type: "positive" }
+                    }
+                    
+                }
+                else {
+                    if (engravingIsNegative) {
+                        this.summary.push({ name: engravingName, value: engravingValue, type: "negative" })
+                    }
+                    else {
+                        this.summary.push({ name: engravingName, value: engravingValue, type: "positive" })
+                    }
+
+                }
+            }
+        },
+
+        removeSummaryElement(engravingName, engravingValue) {
+            if (engravingName !== "") {
+                let engravingIsNegative = false
+                this.negativeEngravings.forEach(function (item, index, array) {
+                    if (item.name == engravingName) {
+                        engravingIsNegative = true
+                    }
+                })
+                if (this.summary.some(item => (item.name === engravingName) && (item.value == engravingValue))) {
+                    var index = this.summary.map(function (e) { return e.name; }).indexOf(engravingName)
+                    this.summary.splice(index, 1)
+
+                }
+                else {
+                    var index = this.summary.map(function (e) { return e.name; }).indexOf(engravingName)
+                    var value = this.summary[index].value
+                    if (engravingIsNegative) {
+                        this.summary[index] = { name: engravingName, value: parseInt(value) - parseInt(engravingValue), type: "negative" }
+                    }
+                    else {
+                        this.summary[index] = { name: engravingName, value: parseInt(value) - parseInt(engravingValue), type: "positive" }
+                    }
+                    
+                }
+            }
+
+        }
+
     },
     watch: {
         'selectedClass': function () {
             localStorage.setItem('selectedClass', this.selectedClass)
         },
 
-
-        'CharacterPositiveEngraving1.name': function () {
+        //character
+        characterPositiveEngraving1_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('CharacterPositiveEngraving1.name', this.CharacterPositiveEngraving1.name)
+            localStorage.setItem('CharacterPositiveEngraving1.value', this.CharacterPositiveEngraving1.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
-        'CharacterPositiveEngraving1.value': function () {
-            localStorage.setItem('CharacterPositiveEngraving1.value',this.CharacterPositiveEngraving1.value)
-        },
-        'CharacterPositiveEngraving2.name': function () {
+        characterPositiveEngraving2_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('CharacterPositiveEngraving2.name', this.CharacterPositiveEngraving2.name)
-        },
-        'CharacterPositiveEngraving2.value': function () {
-            localStorage.setItem('CharacterPositiveEngraving2.value',this.CharacterPositiveEngraving2.value)
+            localStorage.setItem('CharacterPositiveEngraving2.value', this.CharacterPositiveEngraving2.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
 
 
-        'StonePositiveEngraving1.name': function () {
+        //stone
+        stonePositiveEngraving1_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('StonePositiveEngraving1.name', this.StonePositiveEngraving1.name)
+            localStorage.setItem('StonePositiveEngraving1.value', this.StonePositiveEngraving1.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
-        'StonePositiveEngraving1.value': function () {
-            localStorage.setItem('StonePositiveEngraving1.value',this.StonePositiveEngraving1.value)
-        },
-        'StonePositiveEngraving2.name': function () {
+        stonePositiveEngraving2_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('StonePositiveEngraving2.name', this.StonePositiveEngraving2.name)
+            localStorage.setItem('StonePositiveEngraving2.value', this.StonePositiveEngraving2.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
-        'StonePositiveEngraving2.value': function () {
-            localStorage.setItem('StonePositiveEngraving2.value',this.StonePositiveEngraving2.value)
-        },
-        'StoneNegativeEngraving.name': function () {
+        stoneNegativeEngraving_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('StoneNegativeEngraving.name', this.StoneNegativeEngraving.name)
-        },
-        'StoneNegativeEngraving.value': function () {
-            localStorage.setItem('StoneNegativeEngraving.value',this.StoneNegativeEngraving.value)
+            localStorage.setItem('StoneNegativeEngraving.value', this.StoneNegativeEngraving.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
 
 
-        'FirstRingPositiveEngraving1.name': function () {
+        //first ring
+        firstRingPositiveEngraving1_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('FirstRingPositiveEngraving1.name', this.FirstRingPositiveEngraving1.name)
+            localStorage.setItem('FirstRingPositiveEngraving1.value', this.FirstRingPositiveEngraving1.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
-        'FirstRingPositiveEngraving1.value': function () {
-            localStorage.setItem('FirstRingPositiveEngraving1.value',this.FirstRingPositiveEngraving1.value)
-        },
-        'FirstRingPositiveEngraving2.name': function () {
+        firstRingPositiveEngraving2_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('FirstRingPositiveEngraving2.name', this.FirstRingPositiveEngraving2.name)
+            localStorage.setItem('FirstRingPositiveEngraving2.value', this.FirstRingPositiveEngraving2.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
-        'FirstRingPositiveEngraving2.value': function () {
-            localStorage.setItem('FirstRingPositiveEngraving2.value',this.FirstRingPositiveEngraving2.value)
-        },
-        'FirstRingNegativeEngraving.name': function () {
+        firstRingNegativeEngraving_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('FirstRingNegativeEngraving.name', this.FirstRingNegativeEngraving.name)
-        },
-        'FirstRingNegativeEngraving.value': function () {
-            localStorage.setItem('FirstRingNegativeEngraving.value',this.FirstRingNegativeEngraving.value)
+            localStorage.setItem('FirstRingNegativeEngraving.value', this.FirstRingNegativeEngraving.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
 
-
-        'SecondRingPositiveEngraving1.name': function () {
+        //second ring
+        secondRingPositiveEngraving1_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('SecondRingPositiveEngraving1.name', this.SecondRingPositiveEngraving1.name)
+            localStorage.setItem('SecondRingPositiveEngraving1.value', this.SecondRingPositiveEngraving1.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
-        'SecondRingPositiveEngraving1.value': function () {
-            localStorage.setItem('SecondRingPositiveEngraving1.value',this.SecondRingPositiveEngraving1.value)
-        },
-        'SecondRingPositiveEngraving2.name': function () {
+        secondRingPositiveEngraving2_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('SecondRingPositiveEngraving2.name', this.SecondRingPositiveEngraving2.name)
+            localStorage.setItem('SecondRingPositiveEngraving2.value', this.SecondRingPositiveEngraving2.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
-        'SecondRingPositiveEngraving2.value': function () {
-            localStorage.setItem('SecondRingPositiveEngraving2.value',this.SecondRingPositiveEngraving2.value)
-        },
-        'SecondRingNegativeEngraving.name': function () {
+        secondRingNegativeEngraving_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('SecondRingNegativeEngraving.name', this.SecondRingNegativeEngraving.name)
-        },
-        'SecondRingNegativeEngraving.value': function () {
-            localStorage.setItem('SecondRingNegativeEngraving.value',this.SecondRingNegativeEngraving.value)
+            localStorage.setItem('SecondRingNegativeEngraving.value', this.SecondRingNegativeEngraving.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
 
 
-        'FirstEarringPositiveEngraving1.name': function () {
+        //first earring
+        firstEarringPositiveEngraving1_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('FirstEarringPositiveEngraving1.name', this.FirstEarringPositiveEngraving1.name)
+            localStorage.setItem('FirstEarringPositiveEngraving1.value', this.FirstEarringPositiveEngraving1.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
-        'FirstEarringPositiveEngraving1.value': function () {
-            localStorage.setItem('FirstEarringPositiveEngraving1.value',this.FirstEarringPositiveEngraving1.value)
-        },
-        'FirstEarringPositiveEngraving2.name': function () {
+        firstEarringPositiveEngraving2_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('FirstEarringPositiveEngraving2.name', this.FirstEarringPositiveEngraving2.name)
+            localStorage.setItem('FirstEarringPositiveEngraving2.value', this.FirstEarringPositiveEngraving2.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
-        'FirstEarringPositiveEngraving2.value': function () {
-            localStorage.setItem('FirstEarringPositiveEngraving2.value',this.FirstEarringPositiveEngraving2.value)
-        },
-        'FirstEarringNegativeEngraving.name': function () {
+        firstEarringNegativeEngraving_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('FirstEarringNegativeEngraving.name', this.FirstEarringNegativeEngraving.name)
-        },
-        'FirstEarringNegativeEngraving.value': function () {
-            localStorage.setItem('FirstEarringNegativeEngraving.value',this.FirstEarringNegativeEngraving.value)
+            localStorage.setItem('FirstEarringNegativeEngraving.value', this.FirstEarringNegativeEngraving.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
 
-
-        'SecondEarringPositiveEngraving1.name': function () {
+        //second earring
+        secondEarringPositiveEngraving1_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('SecondEarringPositiveEngraving1.name', this.SecondEarringPositiveEngraving1.name)
+            localStorage.setItem('SecondEarringPositiveEngraving1.value', this.SecondEarringPositiveEngraving1.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
-        'SecondEarringPositiveEngraving1.value': function () {
-            localStorage.setItem('SecondEarringPositiveEngraving1.value',this.SecondEarringPositiveEngraving1.value)
-        },
-        'SecondEarringPositiveEngraving2.name': function () {
+        secondEarringPositiveEngraving2_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('SecondEarringPositiveEngraving2.name', this.SecondEarringPositiveEngraving2.name)
+            localStorage.setItem('SecondEarringPositiveEngraving2.value', this.SecondEarringPositiveEngraving2.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
-        'SecondEarringPositiveEngraving2.value': function () {
-            localStorage.setItem('SecondEarringPositiveEngraving2.value',this.SecondEarringPositiveEngraving2.value)
-        },
-        'SecondEarringNegativeEngraving.name': function () {
+        secondEarringNegativeEngraving_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('SecondEarringNegativeEngraving.name', this.SecondEarringNegativeEngraving.name)
-        },
-        'SecondEarringNegativeEngraving.value': function () {
-            localStorage.setItem('SecondEarringNegativeEngraving.value',this.SecondEarringNegativeEngraving.value)
+            localStorage.setItem('SecondEarringNegativeEngraving.value', this.SecondEarringNegativeEngraving.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
 
 
-        'NecklacePositiveEngraving1.name': function () {
+
+        //necklace
+        necklacePositiveEngraving1_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('NecklacePositiveEngraving1.name', this.NecklacePositiveEngraving1.name)
+            localStorage.setItem('NecklacePositiveEngraving1.value', this.NecklacePositiveEngraving1.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
-        'NecklacePositiveEngraving1.value': function () {
-            localStorage.setItem('NecklacePositiveEngraving1.value',this.NecklacePositiveEngraving1.value)
-        },
-        'NecklacePositiveEngraving2.name': function () {
+        necklacePositiveEngraving2_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('NecklacePositiveEngraving2.name', this.NecklacePositiveEngraving2.name)
+            localStorage.setItem('NecklacePositiveEngraving2.value', this.NecklacePositiveEngraving2.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
-        'NecklacePositiveEngraving2.value': function () {
-            localStorage.setItem('NecklacePositiveEngraving2.value',this.NecklacePositiveEngraving2.value)
-        },
-        'NecklaceNegativeEngraving.name': function () {
+        necklaceNegativeEngraving_str: function (newValueString, oldValueString) {
+            let newObjectString = JSON.parse(newValueString)
+            let oldObjectString = JSON.parse(oldValueString)
             localStorage.setItem('NecklaceNegativeEngraving.name', this.NecklaceNegativeEngraving.name)
-        },
-        'NecklaceNegativeEngraving.value': function () {
-            localStorage.setItem('NecklaceNegativeEngraving.value',this.NecklaceNegativeEngraving.value)
+            localStorage.setItem('NecklaceNegativeEngraving.value', this.NecklaceNegativeEngraving.value)
+            this.addSummaryElement(newObjectString.name, newObjectString.value)
+            this.removeSummaryElement(oldObjectString.name, oldObjectString.value)
         },
     }
 }
