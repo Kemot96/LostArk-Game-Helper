@@ -13,12 +13,22 @@ import 'quasar/src/css/index.sass'
 // and placed in same folder as main.js
 import App from './App.vue'
 
+import router from './router'
+
+import dataPlugin from './plugins/data.js'
+
 const myApp = createApp(App)
 
 myApp.use(Quasar, {
   plugins: {}, // import Quasar plugins and add here
   lang: quasarLang,
 })
+
+myApp.use(dataPlugin)
+
+myApp.use(router)
+
+myApp.config.unwrapInjectedRef = true
 
 Dark.set(true) // or false or "auto"
 

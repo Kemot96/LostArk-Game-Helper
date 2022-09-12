@@ -1,9 +1,15 @@
 <script>
 
 export default {
-    props: ['engraving', 'engravingValue'],
-    emits: ['update:engraving', 'update:engravingValue'],
-    computed: {
+  data() {
+    return {
+      selectPositiveEngraving: this.$positiveEngravings,
+    }
+  },
+  inject: ['selectedClass', 'removeOtherClassesPositiveEngravings', 'removeAllClassesPositiveEngravings'],
+  props: ['engraving', 'engravingValue', 'isStone'],
+  emits: ['update:engraving', 'update:engravingValue'],
+  computed: {
     name: {
       get() {
         return this.engraving
@@ -20,32 +26,46 @@ export default {
         this.$emit('update:engravingValue', value)
       }
     }
+  },
+  methods:
+  {
+    filterPositiveEngraving(val, update, abort) {
+      update(() => {
+        const needle = val.toLowerCase()
+        if (this.isStone == true) {
+          this.selectPositiveEngraving = this.removeAllClassesPositiveEngravings.filter(v => v.name.toLowerCase().indexOf(needle) > -1)
+        }
+        else {
+          this.selectPositiveEngraving = this.removeOtherClassesPositiveEngravings.filter(v => v.name.toLowerCase().indexOf(needle) > -1)
+        }
+
+      })
+    },
   }
 }
 </script>
 
 
 <template>
-    <div class="q-pa-md">
-        <div class="q-gutter-md row">
-            <q-select outlined v-model="name" use-input hide-selected fill-input
-                input-debounce="0" @filter="$parent.filterPositiveEngraving" :options="$parent.selectPositiveEngraving"
-                option-value="name" option-label="name" emit-value>
-                <template v-slot:option="scope">
-                    <q-item v-bind="scope.itemProps">
-                        <q-item-section avatar>
-                            <q-avatar> <img :src="scope.opt.icon">
-                            </q-avatar>
-                        </q-item-section>
-                        <q-item-section>
-                            <q-item-label>{{ scope.opt.name }}</q-item-label>
-                        </q-item-section>
-                    </q-item>
-                </template>
-            </q-select>
-            <q-input v-model.number="value" type="number" filled
-                                style="max-width: 200px" />
-        </div>
+  <div class="q-pa-md">
+    <div class="q-gutter-md row">
+      <q-select outlined v-model="name" use-input hide-selected fill-input input-debounce="0"
+        @filter="filterPositiveEngraving" :options="selectPositiveEngraving" option-value="name" option-label="name"
+        emit-value>
+        <template v-slot:option="scope">
+          <q-item v-bind="scope.itemProps">
+            <q-item-section avatar>
+              <q-avatar> <img :src="scope.opt.icon">
+              </q-avatar>
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>{{ scope.opt.name }}</q-item-label>
+            </q-item-section>
+          </q-item>
+        </template>
+      </q-select>
+      <q-input v-model.number="value" type="number" filled style="max-width: 70px" />
     </div>
+  </div>
 </template>
 
