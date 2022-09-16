@@ -15,16 +15,12 @@ import App from './App.vue'
 
 import router from './router'
 
-import dataPlugin from './plugins/data.js'
-
 const myApp = createApp(App)
 
 myApp.use(Quasar, {
   plugins: {}, // import Quasar plugins and add here
   lang: quasarLang,
 })
-
-myApp.use(dataPlugin)
 
 myApp.use(router)
 

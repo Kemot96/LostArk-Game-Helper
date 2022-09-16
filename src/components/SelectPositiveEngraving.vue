@@ -1,20 +1,21 @@
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { positiveEngravings } from '../data.js'
 
-export default {
+export default defineComponent({
   data() {
     return {
-      selectPositiveEngraving: this.$positiveEngravings,
+      listOfPositiveEngravings: positiveEngravings,
     }
   },
-  inject: ['selectedClass', 'removeOtherClassesPositiveEngravings', 'removeAllClassesPositiveEngravings'],
-  props: ['engraving', 'engravingValue', 'isStone'],
+  props: ['selectedClass', 'engraving', 'engravingValue', 'isStone'],
   emits: ['update:engraving', 'update:engravingValue'],
   computed: {
     name: {
       get() {
         return this.engraving
       },
-      set(name) {
+      set(name : string) {
         this.$emit('update:engraving', name)
       }
     },
@@ -22,27 +23,33 @@ export default {
       get() {
         return this.engravingValue
       },
-      set(value) {
+      set(value : number) {
         this.$emit('update:engravingValue', value)
       }
-    }
+    },
+    removeAllClassesPositiveEngravings() {
+      return positiveEngravings.filter(engraving => engraving.class == "")
+    },
+    removeOtherClassesPositiveEngravings() {
+      return positiveEngravings.filter(engraving => engraving.class == this.selectedClass || engraving.class == "")
+    },
   },
   methods:
   {
-    filterPositiveEngraving(val, update, abort) {
+    filterPositiveEngraving(val: string, update: any, abort: any) {
       update(() => {
         const needle = val.toLowerCase()
         if (this.isStone == true) {
-          this.selectPositiveEngraving = this.removeAllClassesPositiveEngravings.filter(v => v.name.toLowerCase().indexOf(needle) > -1)
+          this.listOfPositiveEngravings = this.removeAllClassesPositiveEngravings.filter(v => v.name.toLowerCase().indexOf(needle) > -1)
         }
         else {
-          this.selectPositiveEngraving = this.removeOtherClassesPositiveEngravings.filter(v => v.name.toLowerCase().indexOf(needle) > -1)
+          this.listOfPositiveEngravings = this.removeOtherClassesPositiveEngravings.filter(v => v.name.toLowerCase().indexOf(needle) > -1)
         }
 
       })
     },
   }
-}
+});
 </script>
 
 
@@ -50,7 +57,7 @@ export default {
   <div class="q-pa-md">
     <div class="q-gutter-md row">
       <q-select outlined v-model="name" use-input hide-selected fill-input input-debounce="0"
-        @filter="filterPositiveEngraving" :options="selectPositiveEngraving" option-value="name" option-label="name"
+        @filter="filterPositiveEngraving" :options="listOfPositiveEngravings" option-value="name" option-label="name"
         emit-value>
         <template v-slot:option="scope">
           <q-item v-bind="scope.itemProps">

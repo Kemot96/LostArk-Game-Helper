@@ -1,9 +1,11 @@
-<script>
+<script lang="ts">
+  import { defineComponent } from 'vue';
+  import { negativeEngravings } from '../data.js'
 
-export default {
+  export default defineComponent ( {
   data() {
     return {
-      selectNegativeEngraving: this.$negativeEngravings,
+      listOfNegativeEngravings: negativeEngravings,
     }
   },
     props: ['engraving', 'engravingValue'],
@@ -13,7 +15,7 @@ export default {
       get() {
         return this.engraving
       },
-      set(name) {
+      set(name : string) {
         this.$emit('update:engraving', name)
       }
     },
@@ -21,21 +23,21 @@ export default {
       get() {
         return this.engravingValue
       },
-      set(value) {
+      set(value : number) {
         this.$emit('update:engravingValue', value)
       }
     }
   },
   methods:
   {
-    filterNegativeEngraving(val, update, abort) {
+    filterNegativeEngraving(val : string, update : any, abort : any) {
             update(() => {
                 const needle = val.toLowerCase()
-                this.selectNegativeEngraving = this.$negativeEngravings.filter(v => v.name.toLowerCase().indexOf(needle) > -1)
+                this.listOfNegativeEngravings = negativeEngravings.filter(v => v.name.toLowerCase().indexOf(needle) > -1)
             })
         },
   }
-}
+});
 </script>
 
 
@@ -43,7 +45,7 @@ export default {
     <div class="q-pa-md">
         <div class="q-gutter-md row">
             <q-select outlined v-model="name" use-input hide-selected fill-input
-                input-debounce="0" @filter="filterNegativeEngraving" :options="selectNegativeEngraving"
+                input-debounce="0" @filter="filterNegativeEngraving" :options="listOfNegativeEngravings"
                 option-value="name" option-label="name" emit-value>
                 <template v-slot:option="scope">
                     <q-item v-bind="scope.itemProps">

@@ -2,7 +2,7 @@
     <div class="full-width row wrap justify-start items-start content-start">
         <div class="column col-xs-12 col-sm-6 col-md-3 items-start content-center">
             <q-btn @click="getPrices" color="amber" glossy label="Get prices from lostarkmarket.online" />
-            
+
             <div>
                 <q-icon size="25px" name="img:img/items/use_6_104.webp" /> Crystallized Guardian Stone
             </div>
@@ -65,21 +65,28 @@
             </div>
         </div>
         <div class="column col-xs-12 col-sm-12 col-md-9 items-start">
-            <h3><q-icon name="img:img/items/money_10.webp" /> PvP merchant (gold value per 100 Coins of Courage)</h3>
+            <h3>
+                <q-icon name="img:img/items/money_10.webp" /> PvP merchant (gold value per 100 Coins of Courage)
+            </h3>
             <div class="text-weight-bold text-subtitle1" v-for="item in coinsOfCourageSort" :key="item.name">{{
-                 item.name 
-                }} = {{  item.value  }}g
+            item.name
+            }} = {{ item.value }}g
             </div>
 
-            <h3><q-icon name="img:img/items/use_1_40.webp" /> Pirate merchant (gold value per 100 Pirate Coins)</h3>
-            <div class="text-weight-bold text-subtitle1" v-for="item in pirateCoinsSort" :key="item.name">{{  item.name 
-                }} = {{  item.value  }}g
+            <h3>
+                <q-icon name="img:img/items/use_1_40.webp" /> Pirate merchant (gold value per 100 Pirate Coins)
+            </h3>
+            <div class="text-weight-bold text-subtitle1" v-for="item in pirateCoinsSort" :key="item.name">{{ item.name
+            }} = {{ item.value }}g
             </div>
 
-            <h3><q-icon name="img:img/items/tokenitem_17.webp" /> Guild merchant (gold value per 100 Sylmael Bloodstones)</h3>
+            <h3>
+                <q-icon name="img:img/items/tokenitem_17.webp" /> Guild merchant (gold value per 100 Sylmael
+                Bloodstones)
+            </h3>
             <div class="text-weight-bold text-subtitle1" v-for="item in bloodstonesSort" :key="item.name">{{
-                 item.name 
-                }} = {{  item.value  }}g
+            item.name
+            }} = {{ item.value }}g
             </div>
         </div>
     </div>
@@ -87,9 +94,16 @@
 
 
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
+interface itemsValue {
+    name: string
+    value: number
+}
+
+export default defineComponent({
+
     data() {
         return {
             solarGrace: 0,
@@ -105,43 +119,67 @@ export default {
             powderOfSage: 0,
             convertHonorLeapstones: false,
 
-            coinsOfCourageValues: [],
-            pirateCoinsValues: [],
-            bloodstonesValues: []
+            coinsOfCourageValues: new Array<itemsValue>(),
+            pirateCoinsValues: new Array<itemsValue>(),
+            bloodstonesValues: new Array<itemsValue>(),
         }
     },
     mounted() {
-        if(localStorage.getItem('solarGrace') !== null)
-        this.solarGrace = localStorage.getItem('solarGrace');
-        if(localStorage.getItem('solarBlessing') !== null)
-        this.solarBlessing = localStorage.getItem('solarBlessing');
-        if(localStorage.getItem('solarProtection') !== null)
-        this.solarProtection = localStorage.getItem('solarProtection');
-        if(localStorage.getItem('greatHonorLeapstone') !== null)
-        this.greatHonorLeapstone = localStorage.getItem('greatHonorLeapstone');
-        if(localStorage.getItem('honorLeapstone') !== null)
-        this.honorLeapstone = localStorage.getItem('honorLeapstone');
-        if(localStorage.getItem('crystallizedDestructionStone') !== null)
-        this.crystallizedDestructionStone = localStorage.getItem('crystallizedDestructionStone');
-        if(localStorage.getItem('crystallizedGuardianStone') !== null)
-        this.crystallizedGuardianStone = localStorage.getItem('crystallizedGuardianStone');
-        if(localStorage.getItem('honorShardPouchLarge') !== null)
-        this.honorShardPouchLarge = localStorage.getItem('honorShardPouchLarge');
-        if(localStorage.getItem('honorShardPouchMedium') !== null)
-        this.honorShardPouchMedium = localStorage.getItem('honorShardPouchMedium');
-        if(localStorage.getItem('honorShardPouchSmall') !== null)
-        this.honorShardPouchSmall = localStorage.getItem('honorShardPouchSmall');
-        if(localStorage.getItem('powderOfSage') !== null)
-        this.powderOfSage = localStorage.getItem('powderOfSage');
-        if(localStorage.getItem('convertHonorLeapstones') !== null)
-        this.convertHonorLeapstones  = JSON.parse(localStorage.getItem('convertHonorLeapstones'));
+        let solarGraceValue = localStorage.getItem('solarGrace')
+        let solarBlessingValue = localStorage.getItem('solarBlessing')
+        let solarProtectionValue = localStorage.getItem('solarProtection')
+        let greatHonorLeapstoneValue = localStorage.getItem('greatHonorLeapstone')
+        let honorLeapstoneValue = localStorage.getItem('honorLeapstone')
+        let crystallizedDestructionStoneValue = localStorage.getItem('crystallizedDestructionStone')
+        let crystallizedGuardianStoneValue = localStorage.getItem('crystallizedGuardianStone')
+        let honorShardPouchLargeValue = localStorage.getItem('honorShardPouchLarge')
+        let honorShardPouchMediumValue = localStorage.getItem('honorShardPouchMedium')
+        let honorShardPouchSmallValue = localStorage.getItem('honorShardPouchSmall')
+        let powderOfSageValue = localStorage.getItem('powderOfSage')
+        let convertHonorLeapstonesValue = localStorage.getItem('convertHonorLeapstones')
+
+        if (solarGraceValue !== null)
+            this.solarGrace = parseInt(solarGraceValue);
+
+        if (solarBlessingValue !== null)
+            this.solarBlessing = parseInt(solarBlessingValue);
+
+        if (solarProtectionValue !== null)
+            this.solarProtection = parseInt(solarProtectionValue);
+
+        if (greatHonorLeapstoneValue !== null)
+            this.greatHonorLeapstone = parseInt(greatHonorLeapstoneValue);
+
+        if (honorLeapstoneValue !== null)
+            this.honorLeapstone = parseInt(honorLeapstoneValue);
+
+        if (crystallizedDestructionStoneValue !== null)
+            this.crystallizedDestructionStone = parseInt(crystallizedDestructionStoneValue);
+
+        if (crystallizedGuardianStoneValue !== null)
+            this.crystallizedGuardianStone = parseInt(crystallizedGuardianStoneValue);
+
+        if (honorShardPouchLargeValue !== null)
+            this.honorShardPouchLarge = parseInt(honorShardPouchLargeValue);
+
+        if (honorShardPouchMediumValue !== null)
+            this.honorShardPouchMedium = parseInt(honorShardPouchMediumValue);
+
+        if (honorShardPouchSmallValue !== null)
+            this.honorShardPouchSmall = parseInt(honorShardPouchSmallValue);
+
+        if (powderOfSageValue !== null)
+            this.powderOfSage = parseInt(powderOfSageValue);
+
+        if (convertHonorLeapstonesValue !== null)
+            this.convertHonorLeapstones = JSON.parse(convertHonorLeapstonesValue);
     },
     methods: {
         getPrices() {
             fetch('https://www.lostarkmarket.online/api/export-market-live/Europe%20Central?category=Enhancement%20Material')
                 .then(res => res.json())
                 .then((out) => {
-                    out.forEach((item) => {
+                    out.forEach((item : any) => {
                         if (item.name == "Solar Grace") {
                             this.solarGrace = item.lowPrice
                         }
@@ -292,53 +330,53 @@ export default {
     },
     watch: {
         'solarGrace': function () {
-            localStorage.setItem('solarGrace', this.solarGrace)
+            localStorage.setItem('solarGrace', this.solarGrace.toString())
             this.calculateCourageValue()
         },
         'solarBlessing': function () {
-            localStorage.setItem('solarBlessing', this.solarBlessing)
+            localStorage.setItem('solarBlessing', this.solarBlessing.toString())
             this.calculateCourageValue()
         },
         'solarProtection': function () {
-            localStorage.setItem('solarProtection', this.solarProtection)
+            localStorage.setItem('solarProtection', this.solarProtection.toString())
             this.calculateCourageValue()
         },
         'greatHonorLeapstone': function () {
-            localStorage.setItem('greatHonorLeapstone', this.greatHonorLeapstone)
+            localStorage.setItem('greatHonorLeapstone', this.greatHonorLeapstone.toString())
             this.calculateCourageValue()
             this.calculateBloodstoneValue()
         },
         'honorLeapstone': function () {
-            localStorage.setItem('honorLeapstone', this.honorLeapstone)
+            localStorage.setItem('honorLeapstone', this.honorLeapstone.toString())
             this.calculateCourageValue()
             this.calculateBloodstoneValue()
         },
         'crystallizedDestructionStone': function () {
-            localStorage.setItem('crystallizedDestructionStone', this.crystallizedDestructionStone)
+            localStorage.setItem('crystallizedDestructionStone', this.crystallizedDestructionStone.toString())
             this.calculatePirateValue()
             this.calculateCourageValue()
             this.calculateBloodstoneValue()
         },
         'crystallizedGuardianStone': function () {
-            localStorage.setItem('crystallizedGuardianStone', this.crystallizedGuardianStone)
+            localStorage.setItem('crystallizedGuardianStone', this.crystallizedGuardianStone.toString())
             this.calculatePirateValue()
             this.calculateCourageValue()
             this.calculateBloodstoneValue()
         },
         'honorShardPouchLarge': function () {
-            localStorage.setItem('honorShardPouchLarge', this.honorShardPouchLarge)
+            localStorage.setItem('honorShardPouchLarge', this.honorShardPouchLarge.toString())
             this.calculateCourageValue()
         },
         'honorShardPouchMedium': function () {
-            localStorage.setItem('honorShardPouchMedium', this.honorShardPouchMedium)
+            localStorage.setItem('honorShardPouchMedium', this.honorShardPouchMedium.toString())
             this.calculatePirateValue()
         },
         'honorShardPouchSmall': function () {
-            localStorage.setItem('honorShardPouchSmall', this.honorShardPouchSmall)
+            localStorage.setItem('honorShardPouchSmall', this.honorShardPouchSmall.toString())
             this.calculateBloodstoneValue()
         },
         'powderOfSage': function () {
-            localStorage.setItem('powderOfSage', this.powderOfSage)
+            localStorage.setItem('powderOfSage', this.powderOfSage.toString())
             this.calculateBloodstoneValue()
         },
         'convertHonorLeapstones': function () {
@@ -350,50 +388,20 @@ export default {
     computed:
     {
         pirateCoinsSort() {
-            function compare(a, b) {
-                if (a.type < b.type) {
-                    return 1;
-                }
-                if (a.type > b.type) {
-                    return -1;
-                }
-                return 0;
-            }
             let array = this.pirateCoinsValues.sort(({ value: a }, { value: b }) => b - a)
-            array = array.sort(compare)
             return array
 
         },
         coinsOfCourageSort() {
-            function compare(a, b) {
-                if (a.type < b.type) {
-                    return 1;
-                }
-                if (a.type > b.type) {
-                    return -1;
-                }
-                return 0;
-            }
             let array = this.coinsOfCourageValues.sort(({ value: a }, { value: b }) => b - a)
-            array = array.sort(compare)
             return array
 
         },
         bloodstonesSort() {
-            function compare(a, b) {
-                if (a.type < b.type) {
-                    return 1;
-                }
-                if (a.type > b.type) {
-                    return -1;
-                }
-                return 0;
-            }
             let array = this.bloodstonesValues.sort(({ value: a }, { value: b }) => b - a)
-            array = array.sort(compare)
             return array
 
         },
     }
-}
+});
 </script>
