@@ -1,4 +1,4 @@
-<template>
+<template class="window-height">
     <div class="full-width row wrap justify-start items-start content-start">
         <div class="column col-xs-12 col-sm-6 col-md-3 items-center">
             <div id="character">
@@ -11,7 +11,7 @@
                     v-model:engravingValue="CharacterPositiveEngraving2.value"></SelectPositiveEngraving>
             </div>
             <div id="stone">
-                <h4>Stone</h4>
+                <h4><q-icon size="40px" name="img:img/equipment/stone.webp" /> Stone</h4>
                 <SelectPositiveEngraving :selectedClass=selectedClass :isStone="true"
                     v-model:engraving="StonePositiveEngraving1.name"
                     v-model:engravingValue="StonePositiveEngraving1.value"></SelectPositiveEngraving>
@@ -43,7 +43,7 @@
         </div>
         <div class="column col-xs-12 col-sm-6 col-md-3 items-center">
             <div id="necklace">
-                <h4>Necklace</h4>
+                <h4><q-icon size="40px" name="img:img/equipment/necklace.webp" /> Necklace</h4>
                 <SelectPositiveEngraving :selectedClass=selectedClass :isStone="false"
                     v-model:engraving="NecklacePositiveEngraving1.name"
                     v-model:engravingValue="NecklacePositiveEngraving1.value"></SelectPositiveEngraving>
@@ -60,37 +60,8 @@
 
     <div class="full-width row wrap justify-start items-start content-start">
         <div class="column col-xs-12 col-sm-6 col-md-3 items-center">
-            <div id="ring1">
-                <h4>Ring 1</h4>
-                <SelectPositiveEngraving :selectedClass=selectedClass :isStone="false"
-                    v-model:engraving="FirstRingPositiveEngraving1.name"
-                    v-model:engravingValue="FirstRingPositiveEngraving1.value"></SelectPositiveEngraving>
-                <SelectPositiveEngraving :selectedClass=selectedClass :isStone="false"
-                    v-model:engraving="FirstRingPositiveEngraving2.name"
-                    v-model:engravingValue="FirstRingPositiveEngraving2.value"></SelectPositiveEngraving>
-                <SelectNegativeEngraving v-model:engraving="FirstRingNegativeEngraving.name"
-                    v-model:engravingValue="FirstRingNegativeEngraving.value"></SelectNegativeEngraving>
-            </div>
-
-        </div>
-
-        <div class="column col-xs-12 col-sm-6 col-md-3 items-center">
-            <div id="ring2">
-                <h4>Ring 2</h4>
-                <SelectPositiveEngraving :selectedClass=selectedClass :isStone="false"
-                    v-model:engraving="SecondRingPositiveEngraving1.name"
-                    v-model:engravingValue="SecondRingPositiveEngraving1.value"></SelectPositiveEngraving>
-                <SelectPositiveEngraving :selectedClass=selectedClass :isStone="false"
-                    v-model:engraving="SecondRingPositiveEngraving2.name"
-                    v-model:engravingValue="SecondRingPositiveEngraving2.value"></SelectPositiveEngraving>
-                <SelectNegativeEngraving v-model:engraving="SecondRingNegativeEngraving.name"
-                    v-model:engravingValue="SecondRingNegativeEngraving.value"></SelectNegativeEngraving>
-            </div>
-        </div>
-
-        <div class="column col-xs-12 col-sm-6 col-md-3 items-center">
             <div id="earring1">
-                <h4>Earring 1</h4>
+                <h4><q-icon size="40px" name="img:img/equipment/earring.webp" /> Earring 1</h4>
                 <SelectPositiveEngraving :selectedClass=selectedClass :isStone="false"
                     v-model:engraving="FirstEarringPositiveEngraving1.name"
                     v-model:engravingValue="FirstEarringPositiveEngraving1.value"></SelectPositiveEngraving>
@@ -100,11 +71,13 @@
                 <SelectNegativeEngraving v-model:engraving="FirstEarringNegativeEngraving.name"
                     v-model:engravingValue="FirstEarringNegativeEngraving.value"></SelectNegativeEngraving>
             </div>
+            
+
         </div>
 
         <div class="column col-xs-12 col-sm-6 col-md-3 items-center">
             <div id="earring2">
-                <h4>Earring 2</h4>
+                <h4><q-icon size="40px" name="img:img/equipment/earring.webp" /> Earring 2</h4>
                 <SelectPositiveEngraving :selectedClass=selectedClass :isStone="false"
                     v-model:engraving="SecondEarringPositiveEngraving1.name"
                     v-model:engravingValue="SecondEarringPositiveEngraving1.value"></SelectPositiveEngraving>
@@ -114,6 +87,35 @@
                 <SelectNegativeEngraving v-model:engraving="SecondEarringNegativeEngraving.name"
                     v-model:engravingValue="SecondEarringNegativeEngraving.value"></SelectNegativeEngraving>
             </div>
+        </div>
+
+        <div class="column col-xs-12 col-sm-6 col-md-3 items-center">
+            <div id="ring1">
+                <h4><q-icon size="40px" name="img:img/equipment/ring.webp" /> Ring 1</h4>
+                <SelectPositiveEngraving :selectedClass=selectedClass :isStone="false"
+                    v-model:engraving="FirstRingPositiveEngraving1.name"
+                    v-model:engravingValue="FirstRingPositiveEngraving1.value"></SelectPositiveEngraving>
+                <SelectPositiveEngraving :selectedClass=selectedClass :isStone="false"
+                    v-model:engraving="FirstRingPositiveEngraving2.name"
+                    v-model:engravingValue="FirstRingPositiveEngraving2.value"></SelectPositiveEngraving>
+                <SelectNegativeEngraving v-model:engraving="FirstRingNegativeEngraving.name"
+                    v-model:engravingValue="FirstRingNegativeEngraving.value"></SelectNegativeEngraving>
+            </div>
+        </div>
+
+        <div class="column col-xs-12 col-sm-6 col-md-3 items-center">
+            <div id="ring2">
+                <h4><q-icon size="40px" name="img:img/equipment/ring.webp" /> Ring 2</h4>
+                <SelectPositiveEngraving :selectedClass=selectedClass :isStone="false"
+                    v-model:engraving="SecondRingPositiveEngraving1.name"
+                    v-model:engravingValue="SecondRingPositiveEngraving1.value"></SelectPositiveEngraving>
+                <SelectPositiveEngraving :selectedClass=selectedClass :isStone="false"
+                    v-model:engraving="SecondRingPositiveEngraving2.name"
+                    v-model:engravingValue="SecondRingPositiveEngraving2.value"></SelectPositiveEngraving>
+                <SelectNegativeEngraving v-model:engraving="SecondRingNegativeEngraving.name"
+                    v-model:engravingValue="SecondRingNegativeEngraving.value"></SelectNegativeEngraving>
+            </div>
+            
         </div>
     </div>
 </template>
@@ -526,6 +528,8 @@ export default defineComponent({
                 }
                 else {
                     var index = this.summary.map(function (e) { return e.name; }).indexOf(engravingName)
+                    if(index != -1)
+                    {
                     var value = this.summary[index].value
                     if (engravingIsNegative) {
                         this.summary[index] = { name: engravingName, value: value - engravingValue, type: "negative" }
@@ -533,7 +537,7 @@ export default defineComponent({
                     else {
                         this.summary[index] = { name: engravingName, value: value - engravingValue, type: "positive" }
                     }
-
+                    }          
                 }
             }
 
@@ -730,5 +734,11 @@ export default defineComponent({
 <style>
 .class {
     text-align: center;
+}
+
+h4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 12px;
 }
 </style>

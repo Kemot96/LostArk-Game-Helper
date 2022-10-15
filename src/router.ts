@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Calculator from './components/Calculator.vue'
 import Merchant from './components/MerchantValue.vue'
+import Tripod from './components/Tripods.vue'
 
 export default createRouter({
   history: createWebHistory(),
@@ -12,6 +13,10 @@ export default createRouter({
     {
       path: '/merchants',
       component: Merchant,
+    },
+    {
+      path: '/tripods',
+      component: Tripod,
     }
   ]
 })

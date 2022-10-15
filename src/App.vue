@@ -10,6 +10,7 @@
       <q-tabs>
         <q-route-tab to="/" label="Calculator" />
         <q-route-tab to="/merchants" label="Merchants" />
+        <q-route-tab to="/tripods" label="Tripods" />
       </q-tabs>
     </q-header>
 

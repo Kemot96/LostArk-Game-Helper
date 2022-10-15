@@ -15,7 +15,7 @@ export default defineComponent({
       get() {
         return this.engraving
       },
-      set(name : string) {
+      set(name: string) {
         this.$emit('update:engraving', name)
       }
     },
@@ -23,7 +23,7 @@ export default defineComponent({
       get() {
         return this.engravingValue
       },
-      set(value : number) {
+      set(value: number) {
         this.$emit('update:engravingValue', value)
       }
     },
@@ -56,7 +56,7 @@ export default defineComponent({
 <template>
   <div class="q-pa-md">
     <div class="q-gutter-md row">
-      <q-select outlined v-model="name" use-input hide-selected fill-input input-debounce="0"
+      <q-select dense outlined v-model="name" use-input hide-selected fill-input input-debounce="0"
         @filter="filterPositiveEngraving" :options="listOfPositiveEngravings" option-value="name" option-label="name"
         emit-value>
         <template v-slot:option="scope">
@@ -71,7 +71,7 @@ export default defineComponent({
           </q-item>
         </template>
       </q-select>
-      <q-input v-model.number="value" type="number" filled style="max-width: 70px" />
+      <q-input dense v-model.number="value" type="number" filled style="max-width: 70px" />
     </div>
   </div>
 </template>
